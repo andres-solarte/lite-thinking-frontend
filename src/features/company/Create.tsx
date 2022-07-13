@@ -1,9 +1,12 @@
+import { Divider } from '@mui/material';
 import Button from '@mui/material/Button/Button';
+import Container from '@mui/material/Container/Container';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText/FormHelperText';
 import Input from '@mui/material/Input/Input';
 import InputLabel from '@mui/material/InputLabel/InputLabel';
 import Stack from '@mui/material/Stack/Stack';
+import Typography from '@mui/material/Typography/Typography';
 import { FC, ReactElement, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../app/hooks';
@@ -80,47 +83,57 @@ export const Create = () => {
         <>
             <br />
 
-            <Stack spacing={2}>
-                <InputText
-                    label='Nombre de la empresa'
-                    name='name'
-                    type='text'
-                    hasErrors={error.name}
-                    value={form.name}
-                    onChange={handleFormChange}
-                />
-                <InputText
-                    label='Dirección'
-                    name='address'
-                    type='text'
-                    hasErrors={error.address}
-                    value={form.address}
-                    onChange={handleFormChange}
-                />
-                <InputText
-                    label='NIT'
-                    name='nit'
-                    type='number'
-                    hasErrors={error.nit}
-                    value={form.nit}
-                    onChange={handleFormChange}
-                />
-                <InputText
-                    label='Teléfono'
-                    name='phone'
-                    type='number'
-                    hasErrors={error.phone}
-                    value={form.phone}
-                    onChange={handleFormChange}
-                />
-            </Stack>
+            <Container maxWidth="sm">
+                <Typography variant="h3" component="h3">
+                    Crear empresa
+                </Typography>
 
-            <br />
+                <Divider></Divider>
+                <br />
+                <br />
 
-            <Stack spacing={2} direction="row-reverse">
-                <Button variant="outlined" onClick={cancel}>Cancelar</Button>
-                <Button variant="contained" onClick={validateForm}>Guardar</Button>
-            </Stack>
+                <Stack spacing={2}>
+                    <InputText
+                        label='Nombre de la empresa'
+                        name='name'
+                        type='text'
+                        hasErrors={error.name}
+                        value={form.name}
+                        onChange={handleFormChange}
+                    />
+                    <InputText
+                        label='Dirección'
+                        name='address'
+                        type='text'
+                        hasErrors={error.address}
+                        value={form.address}
+                        onChange={handleFormChange}
+                    />
+                    <InputText
+                        label='NIT'
+                        name='nit'
+                        type='number'
+                        hasErrors={error.nit}
+                        value={form.nit}
+                        onChange={handleFormChange}
+                    />
+                    <InputText
+                        label='Teléfono'
+                        name='phone'
+                        type='number'
+                        hasErrors={error.phone}
+                        value={form.phone}
+                        onChange={handleFormChange}
+                    />
+                </Stack>
+
+                <br />
+
+                <Stack spacing={2} direction="row-reverse">
+                    <Button variant="outlined" onClick={cancel}>Cancelar</Button>
+                    <Button variant="contained" onClick={validateForm}>Guardar</Button>
+                </Stack>
+            </Container>
         </>
     )
 }
