@@ -6,6 +6,7 @@ import { Company } from '../../types';
 import Stack from '@mui/material/Stack/Stack';
 import Button from '@mui/material/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { Divider } from '@mui/material';
 
 const columns: GridColDef[] = [
   { field: 'nit', headerName: 'NIT', width: 130 },
@@ -29,18 +30,24 @@ export const List = () => {
     }, [state.companies])
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <>
+      <br />
+
+      <Stack spacing={2} direction="row-reverse">
+        <Button variant="contained" onClick={() => navigate('/create')}>Crear</Button>
+      </Stack>
+
+      <br />
+
+      <Stack spacing={2}>
         <DataGrid
             rows={companies}
             columns={columns}
             pageSize={5}
-            rowsPerPageOptions={[5]}
-            checkboxSelection={false}
+            autoHeight
+            autoPageSize
         />
-
-        <Stack spacing={2}>
-            <Button variant="contained" onClick={() => navigate('/create')}>Crear</Button>
-        </Stack>
-    </div>
+      </Stack>
+      </>
   );
 }

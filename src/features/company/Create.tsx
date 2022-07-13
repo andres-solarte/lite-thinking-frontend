@@ -34,6 +34,10 @@ export const Create = () => {
         }))
       }
 
+    const cancel = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        navigate('/')
+    }
+
     const validateForm = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
 
@@ -74,6 +78,8 @@ export const Create = () => {
 
     return (
         <>
+            <br />
+
             <Stack spacing={2}>
                 <InputText
                     label='Nombre de la empresa'
@@ -107,9 +113,13 @@ export const Create = () => {
                     value={form.phone}
                     onChange={handleFormChange}
                 />
+            </Stack>
 
+            <br />
+
+            <Stack spacing={2} direction="row-reverse">
+                <Button variant="outlined" onClick={cancel}>Cancelar</Button>
                 <Button variant="contained" onClick={validateForm}>Guardar</Button>
-                <Button variant="outlined">Cancelar</Button>
             </Stack>
         </>
     )
